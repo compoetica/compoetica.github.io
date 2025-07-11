@@ -1,1 +1,2 @@
-# compoetica.github.io
+# Compoética 
+## Comunidade Brasileira de Programação Criativa
