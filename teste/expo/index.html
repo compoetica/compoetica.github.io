@@ -101,10 +101,10 @@
             grid-template-rows: 70px;
           "
         >
-          <a href="../expo" class="menusup">exposições</a>
+          <a href="../expo" class="menusup on">exposições</a>
           <a href="../obras" class="menusup">obras</a>
           <a href="../artistas" class="menusup">artistas</a>
-          <a href="../eventos" class="menusup on">eventos</a>
+          <a href="../eventos" class="menusup">eventos</a>
 
           <div class="lupa" onclick="togglenav()">
             <svg
@@ -127,11 +127,10 @@
     </div>
     <div id="wrap">
       <!-- CABEÇALHO ############################################################################################ -->
-
-      <div>
+      <a id="linkaobras" href="#">
         <div class="titulo"></div>
         <div class="subtitulo"></div>
-      </div>
+      </a>
     </div>
 
     <div class="wrapexpoinfo">
@@ -2425,17 +2424,18 @@
     <script src="../interface.js"></script>
 
     <script>
+      textopequeno = "Mais Exposições";
       gsdata(
         "https://docs.google.com/spreadsheets/d/19VHFeFgGRGFgxRutbD1Ysjn_5XTAXCHWmlnCq82dNMM/edit?gid=0#gid=0",
         showeventosfundo
       );
 
       gsdata(
-        "https://docs.google.com/spreadsheets/d/19VHFeFgGRGFgxRutbD1Ysjn_5XTAXCHWmlnCq82dNMM/edit?gid=146167862#gid=146167862",
-        showevento
+        "https://docs.google.com/spreadsheets/d/19VHFeFgGRGFgxRutbD1Ysjn_5XTAXCHWmlnCq82dNMM/edit?gid=1454204693#gid=1454204693",
+        showexposicao
       );
 
-      //turnoffundo();
+      // turnoffundo();
       turnoffteclas();
     </script>
   </body>

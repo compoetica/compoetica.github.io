@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+      body {
+        margin: 10px;
+        font-family: "Inter", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        color: var(--cor-fg, #ffffff);
+        font-size: 26px;
+      }
+      #artistas {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      #artistas .individuos {
+        display: grid;
+        grid-template-columns: 80px 1fr;
+        gap: 20px 20px;
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+      #artistas .individuos:hover {
+        text-decoration: underline;
+      }
+
+      .fotoartista {
+        width: 80px;
+        height: 80px;
+        background-size: cover;
+        background-position: top center;
+        background-repeat: no-repeat;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="artistas"></div>
+
+    <script src="https://datat.vercel.app/basicsmin.js"></script>
+    <script>
+      $_GET = [];
+      (function () {
+        corte = window.location.href.toString().indexOf("?");
+        if (corte > 0) {
+          argumento = window.location.href.toString().substring(corte + 1);
+          argumentos = argumento.split("&");
+          for (arg in argumentos) {
+            let argCorte = argumentos[arg].indexOf("=");
+            $_GET[argumentos[arg].substring(0, argCorte)] = argumentos[
+              arg
+            ].substring(argCorte + 1);
+          }
+        }
+      })();
+
+      let listaID = [];
+      const detalhesartistas = function (dt) {
+        let code = "";
+
+        for (let a = 0; a < listaID.length; a++) {
+          for (let i = 0; i < dt.length; i++) {
+            if (listaID[a] == dt[i].AutorID) {
+              code += `<div class="individuos" onclick="window.parent.location.assign('https://www.ranoya.com/galeria/obras/?artista=${
+                dt[i]["AutorID"]
+              }')"><div class="fotoartista" style="background-image:url(${imagefromallsources(
+                dt[i]["Foto"]
+              )});"></div><div style="align-self: center;">${
+                dt[i]["Nick"]
+              }</div></div>`;
+            }
+          }
+        }
+
+        document.getElementById("artistas").innerHTML = code;
+      };
+
+      const levantaartistas = function (dt) {
+        let dados = selecte(dt, $_GET["expo"]);
+        let artistas = unique(dados, "AutorID");
+        listaID = artistas;
+
+        gsdata(
+          "https://docs.google.com/spreadsheets/d/19VHFeFgGRGFgxRutbD1Ysjn_5XTAXCHWmlnCq82dNMM/edit?gid=198478762#gid=198478762",
+          detalhesartistas
+        );
+      };
+
+      if (
+        typeof $_GET["expo"] != "undefined" &&
+        $_GET["expo"] != null &&
+        $_GET["expo"] != ""
+      ) {
+        gsdata(
+          "https://docs.google.com/spreadsheets/d/19VHFeFgGRGFgxRutbD1Ysjn_5XTAXCHWmlnCq82dNMM/edit?gid=0#gid=0",
+          levantaartistas
+        );
+      }
+    </script>
+  </body>
+</html>

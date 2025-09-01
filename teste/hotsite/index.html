@@ -20,16 +20,19 @@
           grid-template-rows: 36px;
         "
       >
-        <div
+        <!-- <div
           id="retornagaleria"
           style="font-size: 15px; font-weight: 700; line-height: 22px"
           onmouseover="showback()"
           onmouseout="removeback()"
           onclick="gomain()"
-        >
+        > 
           <div id="topword">
             <span id="iconback">&nbsp;‹&nbsp;&nbsp;</span>Galeria Compoética
           </div>
+        </div> -->
+        <div style="font-size: 15px; font-weight: 700; line-height: 22px">
+          Compoética
         </div>
 
         <div>
@@ -101,9 +104,9 @@
             grid-template-rows: 70px;
           "
         >
-          <a href="../expo" class="menusup">exposições</a>
-          <a href="../obras" class="menusup">obras</a>
-          <a href="../artistas" class="menusup">artistas</a>
+          <a href="../expo" class="menusup fader">exposições</a>
+          <a href="../obras" class="menusup fader">obras</a>
+          <a href="../artistas" class="menusup fader">artistas</a>
           <a href="../eventos" class="menusup on">eventos</a>
 
           <div class="lupa" onclick="togglenav()">
@@ -2432,10 +2435,10 @@
 
       gsdata(
         "https://docs.google.com/spreadsheets/d/19VHFeFgGRGFgxRutbD1Ysjn_5XTAXCHWmlnCq82dNMM/edit?gid=146167862#gid=146167862",
-        showevento
+        showpromo
       );
 
-      //turnoffundo();
+      turnoffundo();
       turnoffteclas();
     </script>
   </body>

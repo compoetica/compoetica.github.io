@@ -16,12 +16,11 @@
       <div
         style="
           display: grid;
-          grid-template-columns: 1fr auto auto;
+          grid-template-columns: 1fr 1fr;
           grid-template-rows: 36px;
         "
       >
         <div
-          id="retornagaleria"
           style="font-size: 15px; font-weight: 700; line-height: 22px"
           onmouseover="showback()"
           onmouseout="removeback()"
@@ -31,63 +30,9 @@
             <span id="iconback">&nbsp;‹&nbsp;&nbsp;</span>Galeria Compoética
           </div>
         </div>
-
-        <div>
-          <a
-            href="./?bg=662290"
-            class="blockcolor"
-            style="background-color: #662290"
-          ></a>
-          <a
-            href="./?bg=5d3b3b"
-            class="blockcolor"
-            style="background-color: #5d3b3b"
-          ></a>
-          <a
-            href="./?bg=904020"
-            class="blockcolor"
-            style="background-color: #904020"
-          ></a>
-          <a
-            href="./?bg=ddb20d"
-            class="blockcolor"
-            style="background-color: #ddb20d"
-          ></a>
-          <a
-            href="./?bg=2288bb"
-            class="blockcolor"
-            style="background-color: #2288bb"
-          ></a>
-          <a
-            href="./?bg=004444"
-            class="blockcolor"
-            style="background-color: #004444"
-          ></a>
-          <a
-            href="./?bg=908010"
-            class="blockcolor"
-            style="background-color: #908010"
-          ></a>
-          <a
-            href="./?bg=555555"
-            class="blockcolor"
-            style="background-color: #555555"
-          ></a>
-          <a
-            href="./?bg=000000"
-            class="blockcolor"
-            style="background-color: black"
-          ></a>
-        </div>
-
         <div
           id="datadehoje"
-          style="
-            padding-left: 30px;
-            text-align: right;
-            font-weight: 700;
-            line-height: 22px;
-          "
+          style="text-align: right; font-weight: 700; line-height: 22px"
         ></div>
       </div>
       <div class="linea"></div>
@@ -101,11 +46,11 @@
             grid-template-rows: 70px;
           "
         >
-          <a href="../expo" class="menusup">exposições</a>
-          <a href="../obras" class="menusup">obras</a>
-          <a href="../artistas" class="menusup">artistas</a>
-          <a href="../eventos" class="menusup on">eventos</a>
-
+          <a href="#" class="menusup">exposições</a>
+          <a href="#" class="menusup on">obras</a>
+          <a href="#" class="menusup">artistas</a>
+          <a href="#" class="menusup">eventos</a>
+          <div></div>
           <div class="lupa" onclick="togglenav()">
             <svg
               width="70"
@@ -127,11 +72,6 @@
     </div>
     <div id="wrap">
       <!-- CABEÇALHO ############################################################################################ -->
-
-      <div>
-        <div class="titulo"></div>
-        <div class="subtitulo"></div>
-      </div>
     </div>
 
     <div class="wrapexpoinfo">
@@ -146,8 +86,6 @@
     </div>
 
     <div class="componenteobras"></div>
-
-    <div id="maislistas"></div>
 
     <!-- MIOLO ################################################################################################ -->
 
@@ -2426,17 +2364,14 @@
 
     <script>
       gsdata(
-        "https://docs.google.com/spreadsheets/d/19VHFeFgGRGFgxRutbD1Ysjn_5XTAXCHWmlnCq82dNMM/edit?gid=0#gid=0",
-        showeventosfundo
+        "https://docs.google.com/spreadsheets/d/19VHFeFgGRGFgxRutbD1Ysjn_5XTAXCHWmlnCq82dNMM/edit?gid=198478762#gid=198478762",
+        showwrap
       );
 
       gsdata(
-        "https://docs.google.com/spreadsheets/d/19VHFeFgGRGFgxRutbD1Ysjn_5XTAXCHWmlnCq82dNMM/edit?gid=146167862#gid=146167862",
-        showevento
+        "https://docs.google.com/spreadsheets/d/19VHFeFgGRGFgxRutbD1Ysjn_5XTAXCHWmlnCq82dNMM/edit?gid=0#gid=0",
+        showobras
       );
-
-      //turnoffundo();
-      turnoffteclas();
     </script>
   </body>
 </html>

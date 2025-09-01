@@ -31,7 +31,6 @@
             <span id="iconback">&nbsp;‹&nbsp;&nbsp;</span>Galeria Compoética
           </div>
         </div>
-
         <div>
           <a
             href="./?bg=662290"
@@ -79,7 +78,6 @@
             style="background-color: black"
           ></a>
         </div>
-
         <div
           id="datadehoje"
           style="
@@ -102,10 +100,10 @@
           "
         >
           <a href="../expo" class="menusup">exposições</a>
-          <a href="../obras" class="menusup">obras</a>
+          <a href="../obras" class="menusup on">obras</a>
           <a href="../artistas" class="menusup">artistas</a>
-          <a href="../eventos" class="menusup on">eventos</a>
-
+          <a href="../eventos" class="menusup">eventos</a>
+          <div></div>
           <div class="lupa" onclick="togglenav()">
             <svg
               width="70"
@@ -127,11 +125,6 @@
     </div>
     <div id="wrap">
       <!-- CABEÇALHO ############################################################################################ -->
-
-      <div>
-        <div class="titulo"></div>
-        <div class="subtitulo"></div>
-      </div>
     </div>
 
     <div class="wrapexpoinfo">
@@ -2426,16 +2419,15 @@
 
     <script>
       gsdata(
-        "https://docs.google.com/spreadsheets/d/19VHFeFgGRGFgxRutbD1Ysjn_5XTAXCHWmlnCq82dNMM/edit?gid=0#gid=0",
-        showeventosfundo
+        "https://docs.google.com/spreadsheets/d/19VHFeFgGRGFgxRutbD1Ysjn_5XTAXCHWmlnCq82dNMM/edit?gid=198478762#gid=198478762",
+        showwrap
       );
 
       gsdata(
-        "https://docs.google.com/spreadsheets/d/19VHFeFgGRGFgxRutbD1Ysjn_5XTAXCHWmlnCq82dNMM/edit?gid=146167862#gid=146167862",
-        showevento
+        "https://docs.google.com/spreadsheets/d/19VHFeFgGRGFgxRutbD1Ysjn_5XTAXCHWmlnCq82dNMM/edit?gid=0#gid=0",
+        showobras
       );
 
-      //turnoffundo();
       turnoffteclas();
     </script>
   </body>

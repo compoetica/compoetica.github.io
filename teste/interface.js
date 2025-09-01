@@ -319,8 +319,7 @@ const closerun = function () {
 
 */
 
-const listacolecoes = function (d) {
-  let dt = cfilter(d, "Público", "_pub");
+const listacolecoes = function (dt) {
   let code = `<div class='small' style="margin-top: 60px;">${textopequeno}</div><div class='listagrid'><div class='line'></div>`;
   for (let i = 0; i < dt.length; i++) {
     code += `<a href="${decodeURIComponent(
@@ -350,8 +349,7 @@ if (
 
 let quantautores = 0;
 
-const showwrap = function (d) {
-  let dt = cfilter(d, "Público", "_pub");
+const showwrap = function (dt) {
   let data = selecte(dt, mostraoque);
   quantautores = data.length;
   // console.log("autores: " + quantautores);
@@ -434,8 +432,7 @@ const showwrap = function (d) {
   }
 };
 
-const showobras = function (d) {
-  let dt = cfilter(d, "Público", "_pub");
+const showobras = function (dt) {
   let fundo = "";
   let rof = shuffle(dt.length, dt.length);
 
@@ -498,6 +495,8 @@ const showobras = function (d) {
     "submenuexpo"
   )[0].innerHTML = `<div id="sm0" class="sm submenuativo" onclick="sub(0)">Obras</div>`;
 
+  console.log(mostraoque);
+
   if (mostraoque == "_star") {
     textopequeno = "Coleções";
     gsdata(
@@ -512,8 +511,7 @@ const showobras = function (d) {
   Constroi apenas o backgorund
 
   */
-const showeventosfundo = function (d) {
-  let dt = cfilter(d, "Público", "_pub");
+const showeventosfundo = function (dt) {
   let fundo = "";
   let rof = shuffle(dt.length, dt.length);
 
@@ -568,8 +566,7 @@ const showdetalhesevento = function (dt) {
 
   */
 let textopequeno = "";
-const showevento = function (d) {
-  let dt = cfilter(d, "Público", "_pub");
+const showevento = function (dt) {
   let tituloev = "";
   let subtituloev = "";
   if (textopequeno == "") {
@@ -618,8 +615,7 @@ const showevento = function (d) {
 
   */
 
-const showpromo = function (d) {
-  let dt = cfilter(d, "Público", "_pub");
+const showpromo = function (dt) {
   let tituloev = "";
   let subtituloev = "";
 
@@ -653,8 +649,7 @@ const showpromo = function (d) {
 
   */
 
-const showexposicao = function (d) {
-  let dt = cfilter(d, "Público", "_pub");
+const showexposicao = function (dt) {
   let tituloev = "";
   let subtituloev = "";
   let linkobras = "";
