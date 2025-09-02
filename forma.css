@@ -199,6 +199,48 @@ nav {
   display: block;
 }
 
+#variosartistas {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.thumbs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 10px;
+  margin-bottom: 40px;
+}
+
+.gridartistas {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 20px 50px;
+  cursor: pointer;
+  width: calc(100% - 70px);
+}
+
+.nick {
+  font-size: min(50px, 4vw);
+  line-height: min(54px, calc(4vw + 5px));
+  text-transform: uppercase;
+  font-weight: 700;
+  transition: text-shadow 0.4s ease-in-out;
+}
+
+.gridartistas:hover .nick {
+  text-shadow: -3px 0px 8px #fdfdfd66;
+}
+
+.descrit {
+  font-size: min(4vw, 40px);
+  line-height: min(calc(4vw + 5px), 45px);
+  opacity: 0.7;
+}
+
+.gridartistas:hover .descrit {
+  opacity: 1;
+}
+
 .titulo {
   font-size: 90px;
   line-height: 106px;
@@ -581,7 +623,7 @@ a:hover .titulo {
   margin-bottom: 30px;
   margin-left: var(--dim-margens, 40px);
   display: grid;
-  grid-template-columns: 60px 1fr 60px 1fr 1fr 1fr;
+  grid-template-columns: 60px 1fr 60px 1fr 60px 1fr;
   gap: 20px;
   position: relative;
   z-index: 5;

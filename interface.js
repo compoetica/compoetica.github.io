@@ -319,8 +319,7 @@ const closerun = function () {
 
 */
 
-const listacolecoes = function (d) {
-  let dt = cfilter(d, "Público", "_pub");
+const listacolecoes = function (dt) {
   let code = `<div class='small' style="margin-top: 60px;">${textopequeno}</div><div class='listagrid'><div class='line'></div>`;
   for (let i = 0; i < dt.length; i++) {
     code += `<a href="${decodeURIComponent(
@@ -331,6 +330,92 @@ const listacolecoes = function (d) {
   code += "</div>";
   document.getElementById("maislistas").innerHTML = code;
   document.getElementById("maislistas").style.display = "inline-block";
+};
+
+/*
+
+  Captura todas as obras para iniciar a parte de autores
+
+  */
+let todasobras = [];
+const iniciaautores = function (d) {
+  let dt = cfilter(d, "Público", "_pub");
+  todasobras = dt;
+
+  gsdata(
+    "https://docs.google.com/spreadsheets/d/19VHFeFgGRGFgxRutbD1Ysjn_5XTAXCHWmlnCq82dNMM/edit?gid=198478762#gid=198478762",
+    showautores
+  );
+};
+
+/*
+
+  Apresenta os artistas da galeria
+
+  */
+
+const showautores = function (dtA) {
+  let dtB = "";
+  if (
+    typeof $_GET["filtra"] != "undefined" &&
+    $_GET["filtra"] != null &&
+    $_GET["filtra"] != ""
+  ) {
+    dtB = $_GET["filtra"];
+  }
+
+  let obras = [];
+  let quantas = 4;
+  let thumbs = "<div class='thumbs'>";
+
+  let dtC = selecte(dtA, dtB);
+
+  let data = alphabetic(dtC, "Nick");
+
+  let code = `<div id="variosartistas"><div style="margin-top: 60px; margin-bottom: 40px; height: 1px; width: 100%; background-color: var(--cor-fg, #ffffff)"></div>`;
+
+  for (let i = 0; i < data.length; i++) {
+    obras = selecte(todasobras, data[i]["AutorID"]);
+    quantas = 4;
+    if (obras.length < quantas) {
+      quantas = obras.length;
+    }
+
+    thumbs = "";
+
+    for (let j = 0; j < quantas; j++) {
+      thumbs += `<div style='width: 100%; aspect-ratio: 1/1; background-size: cover; background-position: center center; background-image: url(${imagefromallsources(
+        obras[j]["Imagem"]
+      )})'></div>`;
+    }
+
+    thumbs += "";
+
+    code += `<div class="gridartistas" onclick='linka("../obras/?artista=${
+      data[i]["AutorID"]
+    }")'>
+             <div class="nick">
+             <div style="margin-top: 8px; margin-bottom: 10px; width: 100%; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 10px 10px;">
+             <div style="grid-row: 1/span 2; background-repeat: no-repeat; background-position: center center; background-size: cover; width: 100%; aspect-ratio: 1/1; background-image: url(${imagefromallsources(
+               data[i].Foto
+             )})";>
+            </div>
+              ${thumbs}
+             </div>
+
+             ${data[i].Nick}
+             </div>
+             <div class="descrit" style="grid-template-rows: auto;">${
+               data[i].Perfil
+             }</div>
+             
+             </div>
+             <div style="margin-top: 60px; margin-bottom: 40px; height: 1px; width: 100%; background-color: var(--cor-fg, #ffffff)"></div>`;
+  }
+
+  code += `</div>`;
+
+  document.getElementById("wrap").innerHTML = code;
 };
 
 /*
@@ -350,8 +435,7 @@ if (
 
 let quantautores = 0;
 
-const showwrap = function (d) {
-  let dt = cfilter(d, "Público", "_pub");
+const showwrap = function (dt) {
   let data = selecte(dt, mostraoque);
   quantautores = data.length;
   // console.log("autores: " + quantautores);
@@ -434,8 +518,7 @@ const showwrap = function (d) {
   }
 };
 
-const showobras = function (d) {
-  let dt = cfilter(d, "Público", "_pub");
+const showobras = function (dt) {
   let fundo = "";
   let rof = shuffle(dt.length, dt.length);
 
@@ -498,6 +581,8 @@ const showobras = function (d) {
     "submenuexpo"
   )[0].innerHTML = `<div id="sm0" class="sm submenuativo" onclick="sub(0)">Obras</div>`;
 
+  console.log(mostraoque);
+
   if (mostraoque == "_star") {
     textopequeno = "Coleções";
     gsdata(
@@ -512,8 +597,7 @@ const showobras = function (d) {
   Constroi apenas o backgorund
 
   */
-const showeventosfundo = function (d) {
-  let dt = cfilter(d, "Público", "_pub");
+const showeventosfundo = function (dt) {
   let fundo = "";
   let rof = shuffle(dt.length, dt.length);
 
@@ -568,8 +652,7 @@ const showdetalhesevento = function (dt) {
 
   */
 let textopequeno = "";
-const showevento = function (d) {
-  let dt = cfilter(d, "Público", "_pub");
+const showevento = function (dt) {
   let tituloev = "";
   let subtituloev = "";
   if (textopequeno == "") {
@@ -618,8 +701,7 @@ const showevento = function (d) {
 
   */
 
-const showpromo = function (d) {
-  let dt = cfilter(d, "Público", "_pub");
+const showpromo = function (dt) {
   let tituloev = "";
   let subtituloev = "";
 
@@ -653,8 +735,7 @@ const showpromo = function (d) {
 
   */
 
-const showexposicao = function (d) {
-  let dt = cfilter(d, "Público", "_pub");
+const showexposicao = function (dt) {
   let tituloev = "";
   let subtituloev = "";
   let linkobras = "";
