@@ -313,6 +313,10 @@ const closerun = function () {
   document.documentElement.style.setProperty("--dim-stage", "0px");
 };
 
+const linka = function (u) {
+  window.location.href = u;
+};
+
 /*
 
   Apresentação das coleções

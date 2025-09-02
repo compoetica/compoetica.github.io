@@ -313,13 +313,18 @@ const closerun = function () {
   document.documentElement.style.setProperty("--dim-stage", "0px");
 };
 
+const linka = function (u) {
+  window.location.href = u;
+};
+
 /*
 
   Apresentação das coleções
 
 */
 
-const listacolecoes = function (dt) {
+const listacolecoes = function (d) {
+  let dt = cfilter(d, "Público", "_pub");
   let code = `<div class='small' style="margin-top: 60px;">${textopequeno}</div><div class='listagrid'><div class='line'></div>`;
   for (let i = 0; i < dt.length; i++) {
     code += `<a href="${decodeURIComponent(
@@ -354,7 +359,9 @@ const iniciaautores = function (d) {
 
   */
 
-const showautores = function (dtA) {
+const showautores = function (d) {
+  let dtA = cfilter(d, "Público", "_pub");
+
   let dtB = "";
   if (
     typeof $_GET["filtra"] != "undefined" &&
@@ -435,7 +442,8 @@ if (
 
 let quantautores = 0;
 
-const showwrap = function (dt) {
+const showwrap = function (d) {
+  let dt = cfilter(d, "Público", "_pub");
   let data = selecte(dt, mostraoque);
   quantautores = data.length;
   // console.log("autores: " + quantautores);
@@ -518,7 +526,8 @@ const showwrap = function (dt) {
   }
 };
 
-const showobras = function (dt) {
+const showobras = function (d) {
+  let dt = cfilter(d, "Público", "_pub");
   let fundo = "";
   let rof = shuffle(dt.length, dt.length);
 
@@ -581,8 +590,6 @@ const showobras = function (dt) {
     "submenuexpo"
   )[0].innerHTML = `<div id="sm0" class="sm submenuativo" onclick="sub(0)">Obras</div>`;
 
-  console.log(mostraoque);
-
   if (mostraoque == "_star") {
     textopequeno = "Coleções";
     gsdata(
@@ -597,7 +604,9 @@ const showobras = function (dt) {
   Constroi apenas o backgorund
 
   */
-const showeventosfundo = function (dt) {
+
+const showeventosfundo = function (d) {
+  let dt = cfilter(d, "Público", "_pub");
   let fundo = "";
   let rof = shuffle(dt.length, dt.length);
 
@@ -652,7 +661,8 @@ const showdetalhesevento = function (dt) {
 
   */
 let textopequeno = "";
-const showevento = function (dt) {
+const showevento = function (d) {
+  let dt = cfilter(d, "Público", "_pub");
   let tituloev = "";
   let subtituloev = "";
   if (textopequeno == "") {
@@ -701,7 +711,8 @@ const showevento = function (dt) {
 
   */
 
-const showpromo = function (dt) {
+const showpromo = function (d) {
+  let dt = cfilter(d, "Público", "_pub");
   let tituloev = "";
   let subtituloev = "";
 
@@ -735,7 +746,8 @@ const showpromo = function (dt) {
 
   */
 
-const showexposicao = function (dt) {
+const showexposicao = function (d) {
+  let dt = cfilter(d, "Público", "_pub");
   let tituloev = "";
   let subtituloev = "";
   let linkobras = "";
