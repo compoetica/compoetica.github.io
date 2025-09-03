@@ -662,7 +662,8 @@ const showdetalhesevento = function (dt) {
   */
 let textopequeno = "";
 const showevento = function (d) {
-  let dt = cfilter(d, "Público", "_pub");
+  let dp = cfilter(d, "Público", "_pub");
+  let dt = cfilter(dp, "Tipo", "_evt");
   let tituloev = "";
   let subtituloev = "";
   if (textopequeno == "") {

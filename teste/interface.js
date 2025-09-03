@@ -656,7 +656,8 @@ const showdetalhesevento = function (dt) {
 
   */
 let textopequeno = "";
-const showevento = function (dt) {
+const showevento = function (dp) {
+  let dt = cfilter(dp, "Tipo", "_evt");
   let tituloev = "";
   let subtituloev = "";
   if (textopequeno == "") {
