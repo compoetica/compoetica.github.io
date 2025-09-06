@@ -7,6 +7,7 @@ VARIÁVEIS DE URL
 ?coltex=texto > texto da coleção
 ?singlo=true > página de obra única
 ?evento=registro > exibe um evento específico na página de eventos
+?filtra=Villares > filtra artistas na página de artistas
 
 */
 
@@ -34,6 +35,26 @@ let capturateclas = true;
 let turnoffteclas = function () {
   capturateclas = false;
   document.getElementsByClassName("lupa")[0].style.display = "none";
+};
+
+/*
+
+Lida com mensagens entre iframes
+
+*/
+
+window.onmessage = function (e) {
+  window.location.url = e.data;
+
+  /*
+  if (e.data == "g") {
+    goprev();
+  } else if (e.data == "n") {
+    gonext();
+  } else {
+    nowgo(parseInt(e.data));
+  }
+  */
 };
 
 /*
