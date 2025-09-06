@@ -44,6 +44,7 @@ Lida com mensagens entre iframes
 */
 
 window.onmessage = function (e) {
+  console.log("mensagem recebida: " + e.data);
   window.location.url = e.data;
 
   /*
