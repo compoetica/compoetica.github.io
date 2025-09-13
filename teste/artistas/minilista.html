@@ -15,16 +15,18 @@
       }
       #artistas {
         display: flex;
-        flex-direction: column;
+        /* flex-direction: column; */
         gap: 20px;
+        flex-wrap: wrap;
       }
 
       #artistas .individuos {
         display: grid;
-        grid-template-columns: 80px 1fr;
-        gap: 20px 20px;
+        grid-template-columns: 60px 1fr;
+        gap: 20px 14px;
         cursor: pointer;
         text-decoration: none;
+        margin-right: 40px;
       }
 
       #artistas .individuos:hover {
@@ -32,8 +34,8 @@
       }
 
       .fotoartista {
-        width: 80px;
-        height: 80px;
+        width: 60px;
+        height: 60px;
         background-size: cover;
         background-position: top center;
         background-repeat: no-repeat;
