@@ -83,7 +83,7 @@
 
       const levantaartistas = function (dt) {
         let dados = selecte(dt, $_GET["expo"]);
-        let artistas = unique(dados, "AutorID");
+        let artistas = tags(dados, "AutorID", ",");
         listaID = artistas;
 
         gsdata(
