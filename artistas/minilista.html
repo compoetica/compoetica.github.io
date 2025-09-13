@@ -85,6 +85,7 @@
         let dados = selecte(dt, $_GET["expo"]);
         let artistas = unique(dados, "AutorID");
         listaID = artistas;
+        console.table(dados);
         console.table(listaID);
 
         gsdata(
