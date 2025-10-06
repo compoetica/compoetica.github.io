@@ -319,7 +319,7 @@ const togglerun = function (u) {
   } else {
     tarun = true;
     document.getElementById("stage").innerHTML = `
-          <iframe style="width: 100%; height: calc(79dvh - 140px);" frameborder=0 src="${u}"></iframe>
+          <iframe allow="camera; microphone" style="width: 100%; height: calc(79dvh - 140px);" frameborder=0 src="${u}"></iframe>
           `;
     document.documentElement.style.setProperty(
       "--dim-stage",
