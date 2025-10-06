@@ -655,12 +655,10 @@ const showdetalhesevento = function (dt) {
   let expocode = ``;
   let conta = 0;
 
-  console.table(dt[0]);
-
   for (let c in dt[0]) {
     expocode += `<div>${dt[0][c]}</div>`;
     if (c != "Default") {
-      if (c == "-") {
+      if (c.charAt(0) == "-") {
         conta++;
       } else {
         headercode += `<div id="sm${conta}" class="sm submenuativo" onclick="sub(${conta})">${c}</div>`;
