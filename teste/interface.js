@@ -655,6 +655,8 @@ const showdetalhesevento = function (dt) {
   let expocode = ``;
   let conta = 0;
 
+  console.table(dt[0]);
+
   for (let c in dt[0]) {
     expocode += `<div>${dt[0][c]}</div>`;
     if (c != "Default") {
