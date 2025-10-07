@@ -11,7 +11,7 @@ let corA;
 let corB;
 
 function setup() {
-  createCanvas(800, 800);
+  createCanvas(windowHeight, windowHeight);
 
   pgA = createGraphics(width / 2, height / 2);
   pgB = createGraphics(width / 2, height / 2);
