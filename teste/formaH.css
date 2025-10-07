@@ -217,8 +217,8 @@ a:hover .titulo {
   transition: text-shadow 0.4s ease-in-out;
 }
 
-#linkaobras:hover div {
-  opacity: 0.9 !important;
+#linkaobras:hover .subtitulo {
+  opacity: 0.8 !important;
 }
 
 .subtitulo {
