@@ -12,21 +12,23 @@
         font-style: normal;
         color: var(--cor-fg, #ffffff);
         font-size: 26px;
+        margin-bottom: 4px;
+        overflow-y: hidden;
       }
       #artistas {
         display: flex;
         /* flex-direction: column; */
-        gap: 20px;
+        gap: 10px;
         flex-wrap: wrap;
       }
 
       #artistas .individuos {
         display: grid;
-        grid-template-columns: 60px 1fr;
-        gap: 20px 14px;
+        grid-template-columns: 50px 1fr;
+        gap: 10px 14px;
         cursor: pointer;
         text-decoration: none;
-        margin-right: 40px;
+        margin-right: 20px;
       }
 
       #artistas .individuos:hover {
@@ -34,8 +36,8 @@
       }
 
       .fotoartista {
-        width: 60px;
-        height: 60px;
+        width: 50px;
+        height: 50px;
         background-size: cover;
         background-position: top center;
         background-repeat: no-repeat;
