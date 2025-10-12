@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html style="margin: 0; padding: 0; overflow-y: hidden; overflow-x: hidden">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="pinterest" content="nopin" />
+    <meta name="pinterest" content="nohover" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <title>Centipede</title>
+    <meta name="generator" content="artesanal" />
+    <meta
+      name="description"
+      content="Centipede, arte generativa da série autônoma"
+    />
+    <meta name="author" content="Prof. Dr. Guilherme Ranoya" />
+    <meta
+      name="keywords"
+      content="arte generativa, computação criativa, código criativo"
+    />
+    <meta
+      property="og:url"
+      content="https://www.ranoya.com/arte/SerieComportamentais"
+    />
+    <meta property="og:title" content="Série Autônoma" />
+    <meta
+      property="og:description"
+      content="Organização de composições generativas criadas por Guilherme Ranoya"
+    />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
+    <script src="./ranoya_singlecolors.js"></script>
+
+    <style>
+      :root {
+        --cor-highlight: grey;
+        --cor-base: #000000;
+        --cor-lighter: #999999;
+        --cor-mid: grey;
+        --cor-invert: #ffffff;
+        --hamburger-off: #96a4a4;
+        --hamburger-on: black;
+
+        --cor-invert: #fef6e4;
+        --cor-lighter: #efe8d6;
+        --cor-base: #616161;
+        --cor-link: #96a4a4;
+        --cor-nada: #63baa9;
+      }
+
+      html,
+      body {
+        color: var(--cor-base, #000000);
+        background-color: var(--cor-invert, #ffffff);
+        overflow-x: hidden;
+      }
+    </style>
+  </head>
+
+  <body style="margin: 0; padding: 0; overflow-y: hidden; overflow-x: hidden">
+    <div
+      id="dorbitantis"
+      style="
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      "
+    ></div>
+
+    <script type="module">
+      import orbitais from "./ranoya_coverciclov.js";
+
+      let mdl = 50;
+      let dia = 40;
+
+      if (
+        typeof $_GET["modulo"] != "undefined" &&
+        $_GET["modulo"] != null &&
+        $_GET["modulo"] != ""
+      ) {
+        mdl = $_GET["modulo"];
+      }
+
+      if (
+        typeof $_GET["diametro"] != "undefined" &&
+        $_GET["diametro"] != null &&
+        $_GET["diametro"] != ""
+      ) {
+        dia = $_GET["diametro"];
+      }
+
+      let orbis = orbitais({
+        p5,
+        bgcolor: "#1a0633",
+        modulo: mdl,
+        diametro: dia,
+        el: "dorbitantis",
+      });
+    </script>
+  </body>
+</html>
