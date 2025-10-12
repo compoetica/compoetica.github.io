@@ -62,6 +62,33 @@ export default ({
         document.getElementById(el).clientHeight / 2
       );
 
+      if (p.ci < 1000) {
+        for (p.ci = 0; p.ci < 1000; p.ci++) {
+          p.line(
+            p.mapa[p.ci].x1,
+            p.mapa[p.ci].y1,
+            p.mapa[p.ci].x2,
+            p.mapa[p.ci].y2
+          );
+
+          p.line(
+            p.mapa[p.ci].x1,
+            p.mapa[p.ci].y1,
+            p.mapa[p.ci].x2,
+            p.mapa[p.ci].y2
+          );
+
+          p.line(
+            p.mapa[p.ci].x1,
+            p.mapa[p.ci].y1,
+            p.mapa[p.ci].x2,
+            p.mapa[p.ci].y2
+          );
+        }
+
+        p.ci++;
+      }
+
       p.line(
         p.mapa[p.ci].x1,
         p.mapa[p.ci].y1,

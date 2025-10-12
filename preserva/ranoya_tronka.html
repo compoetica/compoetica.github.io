@@ -33,6 +33,31 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
     <script src="./ranoya_singlecolors.js"></script>
+
+    <style>
+      :root {
+        --cor-highlight: grey;
+        --cor-base: #000000;
+        --cor-lighter: #999999;
+        --cor-mid: grey;
+        --cor-invert: #ffffff;
+        --hamburger-off: #96a4a4;
+        --hamburger-on: black;
+
+        --cor-invert: #fef6e4;
+        --cor-lighter: #efe8d6;
+        --cor-base: #616161;
+        --cor-link: #96a4a4;
+        --cor-nada: #63baa9;
+      }
+
+      html,
+      body {
+        color: var(--cor-base, #000000);
+        background-color: var(--cor-invert, #ffffff);
+        overflow-x: hidden;
+      }
+    </style>
   </head>
 
   <body style="margin: 0; padding: 0; overflow-y: hidden; overflow-x: hidden">
@@ -50,7 +75,7 @@
     ></div>
 
     <script type="module">
-      import orbitais from "./ranoya_tronka.js";
+      import orbitais from "./ranoya_tronkafast.js";
 
       let orbis = orbitais({
         p5,
