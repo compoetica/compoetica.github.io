@@ -154,6 +154,11 @@
       background-color: red;
       cursor: pointer;
     }
+
+    html {
+      overflow-x: hidden;
+      overflow-y: hidden;
+    }
   </style>
 
   <script>
@@ -162,8 +167,12 @@
       if (!edita) {
         edita = true;
         document.getElementById("sketch-holder").classList.remove("fixasketch");
+        document.getElementsByTagName("html")[0].style.overflowX = "scroll";
+        document.getElementsByTagName("html")[0].style.overflowY = "scroll";
       } else {
         edita = false;
+        document.getElementsByTagName("html")[0].style.overflowX = "hidden";
+        document.getElementsByTagName("html")[0].style.overflowY = "hidden";
         document.getElementById("sketch-holder").classList.add("fixasketch");
       }
     };
