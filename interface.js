@@ -468,7 +468,8 @@ const showwrap = function (d) {
   let dt = cfilter(d, "Público", "_pub");
   let data = selecte(dt, mostraoque);
   quantautores = data.length;
-  // console.log("autores: " + quantautores);
+  console.log("autores: " + quantautores);
+  console.table(data);
 
   if (
     data.length > 0 ||

@@ -464,7 +464,8 @@ let quantautores = 0;
 const showwrap = function (dt) {
   let data = selecte(dt, mostraoque);
   quantautores = data.length;
-  // console.log("autores: " + quantautores);
+  console.log("autores: " + quantautores);
+  console.table(data);
 
   if (
     data.length > 0 ||
