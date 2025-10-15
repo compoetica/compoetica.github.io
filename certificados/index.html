@@ -544,7 +544,9 @@
               document.getElementById("ts" + z).innerHTML = ts.toString();
 
               qrc = new QRCode("imagemqr" + z, {
-                text: "https://compoetica.com/certificados/?id=" + dados[z].CPF,
+                text:
+                  "https://compoetica.github.io/certificados/?id=" +
+                  dados[z].CPF,
                 width: 128,
                 height: 128,
                 colorDark: "#000000",
