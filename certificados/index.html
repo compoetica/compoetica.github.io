@@ -99,6 +99,8 @@
             $_GET["id"] != null &&
             $_GET["id"] != ""
           ) {
+            let qrc = "";
+            let ts = "";
             dados = cfilter(d, "CPF", $_GET["id"]);
             let code = "";
 
@@ -514,7 +516,7 @@
 
                     <br /><br /><br />
                     <div class="blocoqr">
-                    <div id="imagemqr"></div>
+                    <div id="imagemqr${i}"></div>
                     <div class="small">
                         Este certificado foi gerado digitalmente em <span id="ts${i}"></span>, e
                         sua validade pode ser checada através do link
@@ -536,23 +538,23 @@
             }
 
             document.getElementById("wrap").innerHTML = code;
+
+            for (let z = 0; z < dados.length; z++) {
+              ts = new Date();
+              document.getElementById("ts" + z).innerHTML = ts.toString();
+
+              qrc = new QRCode("imagemqr" + z, {
+                text: "https://compoetica.com/certificados/?id=" + dados[z].CPF,
+                width: 128,
+                height: 128,
+                colorDark: "#000000",
+                colorLight: "#ffffff00",
+                correctLevel: QRCode.CorrectLevel.H,
+              });
+            }
           }
         }
       );
-
-      /*
-      let ts = new Date();
-      document.getElementById("ts").innerHTML = ts.toString();
-
-      let qrcode = new QRCode("imagemqr", {
-        text: "https://www.ranoya.com",
-        width: 128,
-        height: 128,
-        colorDark: "#000000",
-        colorLight: "#ffffff00",
-        correctLevel: QRCode.CorrectLevel.H,
-      });
-      */
     </script>
   </body>
 </html>
