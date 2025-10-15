@@ -470,7 +470,12 @@ const showwrap = function (d) {
   quantautores = data.length;
   // console.log("autores: " + quantautores);
 
-  if (data.length > 0) {
+  if (
+    data.length > 0 ||
+    (typeof $_GET["mostraexpo"] != undefined &&
+      $_GET["mostraexpo"] != null &&
+      $_GET["mostraexpo"] != "")
+  ) {
     let tit = data[0].Nick;
     let texto = data[0].Perfil;
     let code = "";
