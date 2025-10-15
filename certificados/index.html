@@ -505,9 +505,12 @@
 
                 <div class="blocotexto">
                     <div class="titulo">Certificado</div>
-                    Certificamos que ${dados[i].Nome}, inscrito no CPF nº ${dados[i].CPF}, é o
-                    autor da obra "XPTO" que faz parte da exposição "Compoética 2025"
-                    realizada através da Galeria Compoética em 01 de Novembro de 2025.
+                    Certificamos que ${decodeURI(
+                      dados[i].Nome
+                    )}, inscrito no CPF nº ${dados[i].CPF}, é o
+                    autor da obra "${decodeURI(dados[i].Obra)}" ${decodeURI(
+                  dados[i].Complemento
+                )} ${decodeURI(dados[i].Data)}.
 
                     <br /><br /><br />
                     <div class="blocoqr">
@@ -517,8 +520,12 @@
                         sua validade pode ser checada através do link
                         <a
                         target="_blank"
-                        href="https://compoetica.com/certificados/?id=${dados[i].CPF}"
-                        >https://compoetica.com/certificados/?id=${dados[i].CPF}</a
+                        href="https://compoetica.com/certificados/?id=${
+                          dados[i].CPF
+                        }"
+                        >https://compoetica.com/certificados/?id=${
+                          dados[i].CPF
+                        }</a
                         >
                         ou do QR Code ao lado.
                     </div>
