@@ -490,6 +490,12 @@ let forcaexpo = function () {
             <div>`;
 
     document.getElementById("wrap").innerHTML = code;
+    document.getElementById("wrap").style.display = "block";
+    document.getElementsByClassName("componenteobras")[0].style.marginTop =
+      "40px";
+    document.getElementById("foot").style.marginTop = "80px";
+    document.getElementsByClassName("wrapexpoinfo")[0].style.marginBottom =
+      "20px";
   }
 };
 
