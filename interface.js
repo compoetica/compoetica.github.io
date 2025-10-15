@@ -580,12 +580,18 @@ const showwrap = function (d) {
     */
   } else {
     turnoffundo();
-    document.getElementById("wrap").style.display = "none";
-    document.getElementsByClassName("componenteobras")[0].style.marginTop =
-      "0px";
-    document.getElementById("foot").style.marginTop = "20px";
-    document.getElementsByClassName("wrapexpoinfo")[0].style.marginBottom =
-      "0px";
+    if (
+      typeof $_GET["mostraexpo"] == undefined ||
+      $_GET["mostraexpo"] == null ||
+      $_GET["mostraexpo"] != ""
+    ) {
+      document.getElementById("wrap").style.display = "none";
+      document.getElementsByClassName("componenteobras")[0].style.marginTop =
+        "0px";
+      document.getElementById("foot").style.marginTop = "20px";
+      document.getElementsByClassName("wrapexpoinfo")[0].style.marginBottom =
+        "0px";
+    }
   }
 };
 
