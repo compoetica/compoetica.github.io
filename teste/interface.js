@@ -459,6 +459,40 @@ if (
   mostraoque = decodeURIComponent($_GET["artista"]);
 }
 
+let forcaexpo = function () {
+  if (
+    typeof $_GET["mostraexpo"] != undefined &&
+    $_GET["mostraexpo"] != null &&
+    $_GET["mostraexpo"] != ""
+  ) {
+    let code = "";
+
+    if (
+      typeof $_GET["coltit"] != "undefined" &&
+      $_GET["coltit"] != null &&
+      $_GET["coltit"] != ""
+    ) {
+      tit = decodeURIComponent($_GET["coltit"]);
+    }
+
+    if (
+      typeof $_GET["coltex"] != "undefined" &&
+      $_GET["coltex"] != null &&
+      $_GET["coltex"] != ""
+    ) {
+      texto = decodeURIComponent($_GET["coltex"]);
+    }
+
+    code += `
+            <div class="titulo">${tit}</div>
+            <div class="profile">
+            <div style="color: #ffffff88;">${texto}</div>
+            <div>`;
+
+    document.getElementById("wrap").innerHTML = code;
+  }
+};
+
 let quantautores = 0;
 
 const showwrap = function (dt) {
@@ -467,12 +501,7 @@ const showwrap = function (dt) {
   console.log("autores: " + quantautores);
   console.table(data);
 
-  if (
-    data.length > 0 ||
-    (typeof $_GET["mostraexpo"] != undefined &&
-      $_GET["mostraexpo"] != null &&
-      $_GET["mostraexpo"] != "")
-  ) {
+  if (data.length > 0) {
     let tit = data[0].Nick;
     let texto = data[0].Perfil;
     let code = "";
