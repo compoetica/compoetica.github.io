@@ -106,8 +106,8 @@
 
             for (let i = 0; i < dados.length; i++) {
               // Certificados de obra na galeria
-              if (dados[i].Template == "galeria") {
-                code += `<div class="certificado">
+
+              code += `<div class="certificado">
                 <div class="bg">
                     <svg
                     style="width: 100%"
@@ -503,9 +503,10 @@
                         </clipPath>
                     </defs>
                     </svg>
-                </div>
+                </div>`;
 
-                <div class="blocotexto">
+              if (dados[i].Template == "galeria") {
+                code += `<div class="blocotexto">
                     <div class="titulo">Certificado</div>
                     Certificamos que ${decodeURI(
                       dados[i].Nome
@@ -535,8 +536,115 @@
                     </div>
                     </div>
                 </div>
-                </div>`;
+                `;
               }
+
+              if (dados[i].Template == "participação") {
+                code += `<div class="blocotexto">
+                    <div class="titulo">Certificado</div>
+                    Certificamos que ${decodeURI(
+                      dados[i].Nome
+                    )}, inscrito/a no documento de identificação nº${
+                  dados[i].CPF
+                }, participou do ${decodeURI(
+                  dados[i].Complemento
+                )} em ${decodeURI(dados[i].Data)}, com ${decodeURI(
+                  dados[i].Duracao
+                )} de duração.
+
+                    <br /><br /><br />
+                    <div class="blocoqr">
+                    <div id="imagemqr${i}"></div>
+                    <div class="small">
+                        Este certificado foi gerado digitalmente em <span id="ts${i}"></span>, e
+                        sua validade pode ser checada através do link
+                        <a
+                        target="_blank"
+                        href="https://compoetica.github.io/certificados/?id=${
+                          dados[i].CPF
+                        }"
+                        >https://compoetica.github.io/certificados/?id=${
+                          dados[i].CPF
+                        }</a
+                        >
+                        ou do QR Code ao lado.
+                    </div>
+                    </div>
+                </div>
+                `;
+              }
+
+              if (dados[i].Template == "atividade") {
+                code += `<div class="blocotexto">
+                    <div class="titulo">Certificado</div>
+                    Certificamos que ${decodeURI(
+                      dados[i].Nome
+                    )}, inscrito/a no documento de identificação nº${
+                  dados[i].CPF
+                }, desenvolveu a atividade "${decodeURI(
+                  dados[i].Obra
+                )}" no ${decodeURI(dados[i].Complemento)} em ${decodeURI(
+                  dados[i].Data
+                )}, com ${decodeURI(dados[i].Duracao)} de duração.
+
+                    <br /><br /><br />
+                    <div class="blocoqr">
+                    <div id="imagemqr${i}"></div>
+                    <div class="small">
+                        Este certificado foi gerado digitalmente em <span id="ts${i}"></span>, e
+                        sua validade pode ser checada através do link
+                        <a
+                        target="_blank"
+                        href="https://compoetica.github.io/certificados/?id=${
+                          dados[i].CPF
+                        }"
+                        >https://compoetica.github.io/certificados/?id=${
+                          dados[i].CPF
+                        }</a
+                        >
+                        ou do QR Code ao lado.
+                    </div>
+                    </div>
+                </div>
+                `;
+              }
+
+              if (dados[i].Template == "organização") {
+                code += `<div class="blocotexto">
+                    <div class="titulo">Certificado</div>
+                    Certificamos que ${decodeURI(
+                      dados[i].Nome
+                    )}, inscrito/a no documento de identificação nº${
+                  dados[i].CPF
+                }, foi parte da equipe organizadora do ${decodeURI(
+                  dados[i].Complemento
+                )} realizado em ${decodeURI(dados[i].Data)}, com ${decodeURI(
+                  dados[i].Duracao
+                )} de duração.
+
+                    <br /><br /><br />
+                    <div class="blocoqr">
+                    <div id="imagemqr${i}"></div>
+                    <div class="small">
+                        Este certificado foi gerado digitalmente em <span id="ts${i}"></span>, e
+                        sua validade pode ser checada através do link
+                        <a
+                        target="_blank"
+                        href="https://compoetica.github.io/certificados/?id=${
+                          dados[i].CPF
+                        }"
+                        >https://compoetica.github.io/certificados/?id=${
+                          dados[i].CPF
+                        }</a
+                        >
+                        ou do QR Code ao lado.
+                    </div>
+                    </div>
+                </div>
+                `;
+              }
+
+              code += `</div>`;
             }
 
             document.getElementById("wrap").innerHTML = code;
