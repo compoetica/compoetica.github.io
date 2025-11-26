@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="../forma.css" />
     <script src="https://datat.vercel.app/basicsmin.js"></script>
     <link rel="icon" type="image/png" href="../icon2.png" />
+    <script src="https://slidelines.vercel.app/slideslvmin.js"></script>
   </head>
   <body>
     <!-- PRÉ ################################################################################################## -->
@@ -143,7 +144,7 @@
     <div id="stage"></div>
 
     <div class="wrapconteudoexpo">
-      <div class="conteudoexpo"></div>
+      <div class="conteudoexpo" id="timeline"></div>
     </div>
 
     <div class="componenteobras"></div>
@@ -2809,6 +2810,20 @@
 
     <script src="../interface.js"></script>
 
+    <style>
+      .slidelinelvh {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 80px 200px 1fr !important;
+        gap: 10px 10px;
+      }
+
+      .videoembed {
+        width: 100%;
+        aspect-ratio: 16/9;
+      }
+    </style>
+
     <script>
       gsdata(
         "https://docs.google.com/spreadsheets/d/19VHFeFgGRGFgxRutbD1Ysjn_5XTAXCHWmlnCq82dNMM/edit?gid=0#gid=0",
@@ -2817,6 +2832,15 @@
 
       //turnoffundo();
       turnoffteclas();
+
+      let populatimeline = function (d) {
+        slidelvv("timeline", d, "edicao", "evt", "frame", true);
+      };
+
+      gsdata(
+        "https://docs.google.com/spreadsheets/d/1sJ1OrkMx5TG4ADbOac5peuwjgxvMSjrB0BfK9gFFJTw/edit?gid=0#gid=0",
+        populatimeline
+      );
     </script>
   </body>
 </html>
