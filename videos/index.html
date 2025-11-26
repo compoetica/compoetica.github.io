@@ -144,10 +144,10 @@
     <div id="stage"></div>
 
     <div class="wrapconteudoexpo">
-      <div class="conteudoexpo" id="timeline"></div>
+      <div class="conteudoexpo"></div>
     </div>
 
-    <div class="componenteobras"></div>
+    <div class="componenteobras" id="timeline"></div>
 
     <div id="maislistas"></div>
 
@@ -2811,10 +2811,14 @@
     <script src="../interface.js"></script>
 
     <style>
-      .slidelinelvh {
+      #timeline {
+        grid-template-columns: 1fr !important;
+      }
+
+      .slidelinelvv {
         width: 100%;
         display: grid;
-        grid-template-columns: 80px 200px 1fr !important;
+        grid-template-columns: 100px 300px 1fr !important;
         gap: 10px 10px;
       }
 
