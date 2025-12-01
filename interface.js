@@ -90,6 +90,21 @@ document.addEventListener("scroll", function () {
     closerun();
   }
 
+  if (
+    typeof looseloader != "undefined" &&
+    looseloader != null &&
+    looseloader != ""
+  ) {
+    for (let i = 0; i < looseloader.length; i++) {
+      if (
+        looseloader[i].getBoundingClientRect().top <
+        window.innerHeight + 400
+      ) {
+        looseloader[i].src = looseloader[i].getAttribute("vid");
+      }
+    }
+  }
+
   document.getElementById("fundo").style.top =
     (document.getElementById("wrap").getBoundingClientRect().top -
       window.innerHeight -

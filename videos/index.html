@@ -2851,6 +2851,8 @@
     </style>
 
     <script>
+      let looseloader = "";
+
       gsdata(
         "https://docs.google.com/spreadsheets/d/19VHFeFgGRGFgxRutbD1Ysjn_5XTAXCHWmlnCq82dNMM/edit?gid=0#gid=0",
         showeventosfundo
@@ -2861,6 +2863,7 @@
 
       let populatimeline = function (d) {
         slidelvv("timeline", d, "edicao", "evt", "frame", true);
+        looseloader = document.getElementsByClassName("videoembed");
       };
 
       gsdata(
